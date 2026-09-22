@@ -330,8 +330,18 @@ a {
 }
 
 .steps {
+  list-style: none;
+  counter-reset: step;
   padding-left: 22px;
   margin: 16px 0 20px;
+}
+
+.steps > li:not(.callout)::before,
+.warn-body ol > li:not(.callout)::before {
+  counter-increment: step;
+  content: counter(step) ".";
+  font-weight: 700;
+  margin-right: 6px;
 }
 
 .steps li {
@@ -408,6 +418,8 @@ code {
 }
 
 .warn-body ol {
+  list-style: none;
+  counter-reset: step;
   padding-left: 22px;
   margin-top: 8px;
 }
@@ -467,13 +479,40 @@ code {
   text-decoration: underline;
 }
 
+/* Пузырьки-подсказки */
+.callout {
+  list-style: none;
+  border-radius: 10px;
+  border: 1px solid;
+  margin-bottom: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.callout-warn {
+  border-color: #e8873a;
+  background: rgba(232, 135, 58, 0.1);
+}
+
+.callout-tip {
+  border-color: #4d7dd0;
+  background: rgba(77, 125, 208, 0.1);
+}
+
 /* Скриншоты */
 .shot-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   margin-top: 8px;
 }
 
 .shot {
   display: block;
+  width: auto;
+  height: auto;
   max-width: 100%;
   max-height: 360px;
   border: 1px solid var(--border);
@@ -483,6 +522,8 @@ code {
 }
 
 .shot-block figcaption {
+  flex-basis: 100%;
+  text-align: center;
   margin-top: 6px;
   font-size: 14px;
   color: var(--text-muted);
@@ -506,8 +547,6 @@ code {
 
 .lightbox img {
   display: block;
-  max-width: 100%;
-  max-height: 100%;
   border-radius: 4px;
   transform-origin: center center;
 }

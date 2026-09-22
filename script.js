@@ -30,11 +30,30 @@
 
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = lightbox.querySelector("img");
+  var naturalW = 0;
+  var naturalH = 0;
   var scale = 1;
-  var baseScale = 1;
 
   function applyScale() {
     lightboxImg.style.transform = "scale(" + scale + ")";
+  }
+
+  function fitToWindow() {
+    var vw = window.innerWidth;
+    var vh = window.innerHeight;
+    var pad = 64;
+    var ratio = naturalW / naturalH;
+    var dw = Math.min(vw - pad, naturalW);
+    var dh = dw / ratio;
+    var maxH = Math.min(vh - pad, naturalH);
+    if (dh > maxH) {
+      dh = maxH;
+      dw = dh * ratio;
+    }
+    lightboxImg.style.width = Math.max(1, dw) + "px";
+    lightboxImg.style.height = Math.max(1, dh) + "px";
+    scale = 1;
+    applyScale();
   }
 
   function closeShot() {
@@ -46,20 +65,20 @@
   var shots = document.querySelectorAll(".shot");
   shots.forEach(function (img) {
     img.addEventListener("click", function () {
-      var w = img.naturalWidth || 1;
-      var h = img.naturalHeight || 1;
-      var vw = window.innerWidth;
-      var vh = window.innerHeight;
-      baseScale = Math.min(1, (vw - 64) / w, (vh - 64) / h);
-      scale = baseScale;
+      naturalW = img.naturalWidth || 1;
+      naturalH = img.naturalHeight || 1;
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt || "";
-      lightboxImg.style.width = w + "px";
-      lightboxImg.style.height = "auto";
-      applyScale();
+      fitToWindow();
       lightbox.hidden = false;
       document.body.style.overflow = "hidden";
     });
+  });
+
+  window.addEventListener("resize", function () {
+    if (!lightbox.hidden && naturalW > 0) {
+      fitToWindow();
+    }
   });
 
   document.querySelector(".lightbox-close").addEventListener("click", closeShot);
@@ -116,7 +135,7 @@
       if (lightbox.hidden) return;
       e.preventDefault();
       var factor = e.deltaY < 0 ? 1.15 : 1 / 1.15;
-      scale = Math.max(baseScale * 0.5, Math.min(baseScale * 8, scale * factor));
+      scale = Math.max(0.5, Math.min(8, scale * factor));
       applyScale();
     },
     { passive: false }
