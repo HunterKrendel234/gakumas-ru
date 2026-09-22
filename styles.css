@@ -539,6 +539,8 @@ code {
   align-items: center;
   justify-content: center;
   padding: 32px;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 .lightbox[hidden] {
@@ -549,6 +551,14 @@ code {
   display: block;
   border-radius: 4px;
   transform-origin: center center;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.lightbox img.dragging {
+  cursor: grabbing;
 }
 
 .lightbox-close {
