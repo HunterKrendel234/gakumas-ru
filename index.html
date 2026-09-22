@@ -78,7 +78,8 @@
         <div class="platform-panel" id="panel-pc" role="tabpanel">
           <div class="platform-head">
             <h3>ПК (DMM)</h3>
-            <p>Локализация для компьютерной версии игры через DMM. Кастомный шрифт для ПК идёт в комплекте.</p>
+            <p>Локализация для компьютерной версии игры через DMM.<br>Сложность: <strong>Легкая (3 шага)</strong>.
+            <br><strong>Если будет трудно - <a href="#help-pc">загляните сюда</a>.</strong>
             <details class="warn">
               <summary>Важно! Сохраните прогресс игры перед установкой!</summary>
               <div class="warn-body">
@@ -113,7 +114,7 @@
               </div>
             </details>
           </div>
-          <!-- Шаблон для ПК (DMM): отредактируйте и добавьте свои шаги ниже -->
+
           <h3>📦 Шаг 1. Подготовка</h3>
           <ol class="steps">
             <li class="callout callout-warn">⚠️ Для работы игры как на ПК, так и на смартфоне требуется японский VPN-сервер.</li>
@@ -162,15 +163,21 @@
             <li>Скачайте обновление локализации и перезапустите игру.</li>
           </ol>
           <h3>🎉 Готово!</h3>
-          <h4>Русская локализация установлена.<br>В дальнейшем игру можно запускать обычным способом. Через её стандартный значок на рабочем столе.<br><br></h4>
-          <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Вопросы по установке - в Discord</a>
+          <h4>Русская локализация установлена.
+            <br>В дальнейшем игру можно запускать обычным способом.
+            <br>Через её стандартный значок на рабочем столе.
+            <br><br>Приятной игры!<br><br>
+          </h4>
+          <div class="platform-foot" id="help-pc"> 
+            <h3>Возникли трудности?<br><a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">💬 Поддержка в Discord</a></h3>
+          </div>
         </div>
 
         <div class="platform-panel" id="panel-android" role="tabpanel" hidden>
           <div class="platform-head">
             <h3>Android</h3>
-            <p>Локализация для Android-устройств. Кастомный шрифт для Android идёт в комплекте.</p>
-            <!-- TODO: замените пункты на реальную инструкцию по сохранению данных для Android -->
+            <p>Локализация для Android-устройств.<br>Сложность: <strong>Средняя (4 шага)</strong>.
+            <br><strong>Если будет трудно - <a href="#help-android">загляните сюда</a>.</strong>
             <details class="warn">
               <summary>Важно! Сохраните прогресс игры перед установкой!</summary>
               <div class="warn-body">
@@ -204,30 +211,79 @@
                <li class="callout callout-warn">⚠️ Не создавайте новую привязку, если хотите загрузить существующее сохранение. Используйте тот же Bandai Namco ID, который был привязан к вашему предыдущему прогрессу.</li> 
               </div>
             </details>
-            <!-- TODO: заменить ссылку на актуальный релиз -->
-            <a class="btn btn-primary" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU/releases" target="_blank" rel="noopener">Скачать для Android</a>
           </div>
           <!-- Шаблон для Android: отредактируйте и добавьте свои шаги ниже -->
+          <h3>📦 Шаг 1. Подготовка</h3>
           <ol class="steps">
-            <li>Установите и настройте <a href="https://github.com/chinosk6/gakuen-imas-localify" target="_blank" rel="noopener">gakuen-imas-localify</a>.</li>
-            <li>Скачайте версию локализации кнопкой выше и распакуйте архив.</li>
-            <li>Перенесите файлы <code>local-files</code> в каталог приложения (подробности - в Discord).</li>
-            <li>Запустите игру и проверьте перевод.</li>
-            <li>Скопируйте ссылку в Localify.</li>
-            <!-- TODO: замените на свою ссылку (текст ниже - то, что скопирует кнопка) -->
-            <div class="link-box">
-              <button class="copy-btn" type="button"><span class="copy-label">Скопировать</span></button>
-              <a class="link-box-link" href="#" target="_blank" rel="noopener">https://ваша-ссылка.example</a>
-            </div>
-            <li>
-              Пример: сюда добавляйте скриншоты (положите файл в <code>img/</code> и укажите путь). Клик по скриншоту открывает его крупно:
+            <li class="callout callout-warn">⚠️ Для работы игры как на ПК, так и на смартфоне требуется японский VPN-сервер.</li>
+            <li>Скачайте и установите: <strong>Shizuku</strong>:  <a class="btn btn-primary" href="https://github.com/RikkaApps/Shizuku/releases" target="_blank" rel="noopener">Shizuku</a></li>
+            <li>Скачайте и установите: <strong>Gakumas.Localify_v-.-.-.APK последней версии</strong>:  <a class="btn btn-primary" href="https://github.com/chinosk6/gakuen-imas-localify/releases" target="_blank" rel="noopener">Gakumas Localify</a></li>
+            <li>Скачайте игру в формате <strong>XAPK</strong>.</li>
+            <li class="callout callout-tip">💡 <strong>Google Play</strong> версию игры можно вытащить через утилиты в нужный формат.<br>Этот процесс чуть сложнее, поэтому не будем рассматривать.
+              <br>Например, можно найти <strong>XAPK</strong> игры на <strong>APKPure (не реклама)</strong>:  
+              <a class="btn btn-primary" href="https://apkpure.com/%E5%AD%A6%E5%9C%92%E3%82%A2%E3%82%A4%E3%83%89%E3%83%AB%E3%83%9E%E3%82%B9%E3%82%BF%E3%83%BC/com.bandainamcoent.idolmaster_gakuen/download" target="_blank" rel="noopener">APKPure (не реклама)</a></li>
+
+            <li class="callout callout-warn">⚠️ Сторонние источники скачивания <strong>APK/XAPK</strong> (в том числе <strong>APKPure</strong>) используйте <strong>на свой страх и риск</strong>.</li>
+          </ol>
+          <h3>🛠️ Шаг 2. Настройка Shizuku</h3>
+          <ol class="steps">
+            <li class="callout callout-tip">💡 Необходимо включить режим разработчика на телефоне и запустить Shizuku через <strong>отладку по Wi-Fi</strong>.<br>
+            Это позволит Localify получить необходимые права для патчинга игры.</li>
+
+            <li>Включите <strong>Режим разработчика</strong> в настройках Android.</li>
+            <li>В меню разработчика активируйте <strong>«Отладка по Wi-Fi»</strong>.</li>
+            <li>Откройте <strong>Shizuku</strong> и во вкладке <strong>«Запуск через отладку по Wi-Fi»</strong> нажмите <strong>«Сопряжение»</strong>.</li>
+            <li>Прочитайте инструкцию на экране и нажмите <strong>«Параметры разработчика»</strong>.</li>
+            <li>В настройках отладки по Wi-Fi выберите <strong>«Подключить устройство с помощью кода подключения»</strong>.</li>
+            <li>Появится код сопряжения. Shizuku отправит уведомление - <strong>введите этот код в уведомлении</strong>.</li>
+            <li>Вернитесь на главный экран Shizuku и нажмите <strong>«Запустить»</strong>.</li>
+            <li>После успешного запуска появится пункт <strong>«Доступно для 0 приложений»</strong> (или больше). Нажмите на него.</li>
+            <li>Включите доступ для <strong>Gakumas Localify</strong>.</li>
+          </ol>
+          <h3>🪄 Шаг 3. Патчинг и установка игры</h3>
+          <ol class="steps">
+            <li>Откройте <strong>Localify</strong>.</li>
+            <li>В Localify перейдите во вкладки <strong>Home</strong> и <strong>Advanced</strong> и установите параметры в соответствии со скриншотами.
               <figure class="shot-block">
-                <img class="shot" src="img/example.svg" alt="Скриншот - пример" width="360" height="200">
-                <figcaption>Подпись к скриншоту (необязательно)</figcaption>
+                <img class="shot" src="img/andr1.png" alt="Скриншот" width="360" height="780">
+                <img class="shot" src="img/andr2.png" alt="Скриншот" width="360" height="780">
               </figure>
             </li>
+            <li>Нажмите на <strong>иконку волшебного карандаша слева</strong>.</li>
+            <li>Убедитесь, что отображается: <code>Shizuku service available</code>.</li>
+            <li class="callout callout-tip">💡 Это означает, что Shizuku успешно запущен и доступен для Localify.</li>
+            <li>Выберите режим <strong>Integrated</strong>.</li>
+            <li>Нажмите на <strong>волшебный карандаш справа</strong>.</li>
+            <li>Выберите ранее скачанный <strong>XAPK-файл игры</strong>.</li>
+            <li>Дождитесь окончания патчинга.</li>
+            <li>Когда появится: <code>Patch finished. Start installing?</code> нажмите <strong>ОК</strong>.</li>
+            <li>После успешной установки в нижней части лога Localify появится: <code>Done</code></li>
+            <li class="callout callout-tip">💡 После установки можно отключить режим разработчика, закрыть Shizuku и удалить исходный XAPK, чтобы освободить место.</li>
+            <li class="callout callout-warn">⚠️ Не удаляйте <strong>Localify и Shizuku</strong>. Они понадобятся для последующих обновлений игры.</li>
           </ol>
-          <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Вопросы по установке - в Discord</a>
+          <h3>🌐 Шаг 4. Установка русской локализации</h3>
+          <ol class="steps">
+            <li>В поле со ссылкой на <strong>GitHub API</strong> сначала нажмите <strong>Check</strong>, чтобы загрузить базовое обновление локализации.</li>
+            <li><strong>Полностью закройте Localify</strong> (выгрузите приложение из памяти).</li>
+            <li>Снова откройте Localify.</li>
+            <li>В пункте <strong>API Address (Github Latest Release API)</strong> замените стандартную ссылку на:</li>
+            <div class="link-box">
+              <button class="copy-btn" type="button"><span class="copy-label">Скопировать</span></button>
+              <a class="link-box-link" href="#" target="_blank" rel="noopener">https://api.github.com/repos/HunterKrendel234/Gakumas-Translation-Data-RU/releases/latest</a>
+            </div>
+            <li>Нажмите <strong>Check</strong> и дождитесь загрузки русской локализации.</li>
+            <li>После завершения загрузки нажмите <strong>стрелку справа</strong> для первого запуска игры.</li>
+            <li class="callout callout-tip">💡 При первом запуске игра может закрыться. Это особенность LSPatch, поэтому просто повторно запустите игру.</li>
+          </ol>
+          <h3>🎉 Готово!</h3>
+          <h4>Русская локализация установлена.
+            <br>В дальнейшем игру можно запускать обычным способом.
+            <br>Через её стандартный значок на рабочем столе.
+            <br><br>Приятной игры!<br><br>
+          </h4>
+          <div class="platform-foot" id="help-android">
+            <h3>Возникли трудности?<br><a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">💬 Поддержка в Discord</a></h3>
+          </div>
         </div>
       </div>
     </section>
@@ -287,7 +343,7 @@
   <div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Просмотр скриншота">
     <button class="lightbox-close" type="button" aria-label="Закрыть">&times;</button>
     <img src="" alt="">
-    <p class="lightbox-hint">Колесо мыши - масштаб по курсору &middot; перетаскивание - перемещение &middot; щипок - масштаб &middot; Esc или крестик - закрыть</p>
+    <p class="lightbox-hint">Колесо мыши / щипок - масштаб по курсору &middot; ПКМ / перетаскивание - перемещение &middot; Esc или крестик - закрыть</p>
   </div>
 
   <script src="script.js"></script>

@@ -329,6 +329,12 @@ a {
   color: var(--text-muted);
 }
 
+.platform-foot {
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
 .steps {
   list-style: none;
   counter-reset: step;
