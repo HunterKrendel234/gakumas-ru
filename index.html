@@ -64,6 +64,18 @@
           <div class="platform-head">
             <h3>ПК (DMM)</h3>
             <p>Локализация для компьютерной версии игры через DMM. Кастомный шрифт для ПК идёт в комплекте.</p>
+            <!-- TODO: замените пункты на реальную инструкцию по сохранению данных для ПК -->
+            <details class="warn">
+              <summary>Важно! Разверните и прочитайте!</summary>
+              <div class="warn-body">
+                <p>Перед установкой или обновлением локализации сохраните данные игры, чтобы не потерять прогресс:</p>
+                <ol>
+                  <li>Сделайте резервную копию папки с данными игры (путь указан в шагах установки ниже).</li>
+                  <li>Скриншотните и сохраните данные аккаунта / ID игрока и настройки.</li>
+                  <li>Положите резервную копию в надёжное место (облако, флешка).</li>
+                </ol>
+              </div>
+            </details>
             <!-- TODO: заменить ссылку на актуальный релиз -->
             <a class="btn btn-primary" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU/releases" target="_blank" rel="noopener">Скачать для ПК (DMM)</a>
           </div>
@@ -73,6 +85,13 @@
             <li>Скачайте версию локализации кнопкой выше и распакуйте архив.</li>
             <li>Перенесите файлы <code>local-files</code> в каталог приложения (подробности — в Discord).</li>
             <li>Запустите игру через DMM и проверьте перевод.</li>
+            <li>
+              Пример: сюда добавляйте скриншоты (положите файл в <code>img/</code> и укажите путь). Клик по скриншоту открывает его крупно:
+              <figure class="shot-block">
+                <img class="shot" src="img/example.svg" alt="Скриншот — пример" width="360" height="200">
+                <figcaption>Подпись к скриншоту (необязательно)</figcaption>
+              </figure>
+            </li>
           </ol>
           <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Вопросы по установке — в Discord</a>
         </div>
@@ -81,6 +100,18 @@
           <div class="platform-head">
             <h3>Android</h3>
             <p>Локализация для Android-устройств. Кастомный шрифт для Android идёт в комплекте.</p>
+            <!-- TODO: замените пункты на реальную инструкцию по сохранению данных для Android -->
+            <details class="warn">
+              <summary>Важно! Разверните и прочитайте!</summary>
+              <div class="warn-body">
+                <p>Перед установкой или обновлением локализации сохраните данные игры, чтобы не потерять прогресс:</p>
+                <ol>
+                  <li>Сделайте резервную копию папки с данными игры (путь указан в шагах установки ниже).</li>
+                  <li>Скриншотните и сохраните данные аккаунта / ID игрока и настройки.</li>
+                  <li>Положите резервную копию в надёжное место (облако, флешка).</li>
+                </ol>
+              </div>
+            </details>
             <!-- TODO: заменить ссылку на актуальный релиз -->
             <a class="btn btn-primary" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU/releases" target="_blank" rel="noopener">Скачать для Android</a>
           </div>
@@ -90,6 +121,13 @@
             <li>Скачайте версию локализации кнопкой выше и распакуйте архив.</li>
             <li>Перенесите файлы <code>local-files</code> в каталог приложения (подробности — в Discord).</li>
             <li>Запустите игру и проверьте перевод.</li>
+            <li>
+              Пример: сюда добавляйте скриншоты (положите файл в <code>img/</code> и укажите путь). Клик по скриншоту открывает его крупно:
+              <figure class="shot-block">
+                <img class="shot" src="img/example.svg" alt="Скриншот — пример" width="360" height="200">
+                <figcaption>Подпись к скриншоту (необязательно)</figcaption>
+              </figure>
+            </li>
           </ol>
           <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Вопросы по установке — в Discord</a>
         </div>
@@ -147,6 +185,12 @@
       </p>
     </div>
   </footer>
+
+  <div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Просмотр скриншота">
+    <button class="lightbox-close" type="button" aria-label="Закрыть">&times;</button>
+    <img src="" alt="">
+    <p class="lightbox-hint">Колесо мыши — масштаб &middot; Esc или крестик — закрыть</p>
+  </div>
 
   <script src="script.js"></script>
 </body>
