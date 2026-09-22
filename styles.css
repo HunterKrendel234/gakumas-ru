@@ -115,7 +115,7 @@ a {
   background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 7px 9px;
+  padding: 5px 7px;
   cursor: pointer;
   color: var(--text);
   line-height: 0;
@@ -128,8 +128,8 @@ a {
 
 .theme-toggle svg {
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
 }
 
 .theme-toggle .icon-sun {
@@ -205,10 +205,11 @@ a {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 9px 16px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 1.4;
   text-decoration: none;
   border: 1px solid transparent;
 }
@@ -284,7 +285,8 @@ a {
   color: var(--text-muted);
   font: inherit;
   font-weight: 600;
-  padding: 10px 18px;
+  font-size: 14px;
+  padding: 8px 14px;
   border-radius: 7px;
   cursor: pointer;
 }
@@ -414,6 +416,57 @@ code {
   margin-bottom: 6px;
 }
 
+/* Поле со ссылкой и кнопкой копирования */
+.link-box {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.copy-btn {
+  appearance: none;
+  border: 0;
+  border-right: 1px solid var(--border);
+  background: var(--bg-alt);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 9px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  color: var(--text);
+  background: var(--bg);
+}
+
+.copy-btn.copied {
+  color: #2ea043;
+}
+
+.link-box-link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  padding: 9px 14px;
+  color: var(--primary);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.link-box-link:hover {
+  text-decoration: underline;
+}
+
 /* Скриншоты */
 .shot-block {
   margin-top: 8px;
@@ -463,13 +516,13 @@ code {
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.4);
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 1;
   cursor: pointer;
 }

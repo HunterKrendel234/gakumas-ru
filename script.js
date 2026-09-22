@@ -64,6 +64,40 @@
 
   document.querySelector(".lightbox-close").addEventListener("click", closeShot);
 
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text);
+      return;
+    }
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand("copy");
+    } catch (e) {}
+    document.body.removeChild(ta);
+  }
+
+  document.querySelectorAll(".copy-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var link = btn.parentElement.querySelector(".link-box-link");
+      var value = (btn.dataset.copy || (link ? link.textContent.trim() : "")).trim();
+      if (!value) return;
+      copyText(value);
+      btn.classList.add("copied");
+      var label = btn.querySelector(".copy-label");
+      var original = label.textContent;
+      label.textContent = "Скопировано!";
+      setTimeout(function () {
+        btn.classList.remove("copied");
+        label.textContent = original;
+      }, 1500);
+    });
+  });
+
   lightbox.addEventListener("click", function (e) {
     if (e.target === lightbox) {
       closeShot();
