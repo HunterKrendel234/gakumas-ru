@@ -4,8 +4,8 @@
   --text: #1f2328;
   --text-muted: #57606a;
   --border: #d0d7de;
-  --primary: #c2413a;
-  --primary-hover: #a3332d;
+  --primary: #d4a8a7;
+  --primary-hover: #bf8f8e;
   --accent: #5865f2;
   --accent-hover: #4752c4;
 }
@@ -17,8 +17,8 @@
     --text: #e6edf3;
     --text-muted: #8b949e;
     --border: #30363d;
-    --primary: #e05548;
-    --primary-hover: #c2413a;
+    --primary: #d4a8a7;
+    --primary-hover: #e0baba;
     --accent: #7983f5;
     --accent-hover: #6470ec;
   }
@@ -30,8 +30,8 @@
   --text: #e6edf3;
   --text-muted: #8b949e;
   --border: #30363d;
-  --primary: #e05548;
-  --primary-hover: #c2413a;
+  --primary: #d4a8a7;
+  --primary-hover: #e0baba;
   --accent: #7983f5;
   --accent-hover: #6470ec;
 }
@@ -215,7 +215,7 @@ a {
 
 .btn-primary {
   background: var(--primary);
-  color: #fff;
+  color: #3d2f2e;
 }
 
 .btn-primary:hover {
