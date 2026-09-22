@@ -4,31 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gakumas Translation Data RU — русская локализация Gakumas</title>
-  <meta name="description" content="Русская локализация данных игры Gakuen Idolmaster (Gakumas). Скачать для Android и ПК (DMM).">
+  <meta name="description" content="Неофициальная русская локализация данных игры Gakuen Idolmaster (Gakumas). Скачать и установить для Android и ПК (DMM).">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="header">
     <div class="container header-inner">
       <a class="logo" href="#top">Gakumas RU</a>
-      <nav class="nav">
-        <a href="#about">О проекте</a>
-        <a href="#download">Скачать</a>
-        <a href="#install">Установка</a>
-        <a href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU" target="_blank" rel="noopener">GitHub</a>
-      </nav>
+      <div class="header-actions">
+        <nav class="nav">
+          <a href="#about">О проекте</a>
+          <a href="#install">Установка</a>
+          <a href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU" target="_blank" rel="noopener">GitHub</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Переключить тему">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="top">
     <section class="hero">
       <div class="container">
+        <p class="hero-tags">
+          <span class="tag">Неофициальный фан-перевод</span>
+          <span class="tag">Не связан с разработчиками игры</span>
+        </p>
         <h1>Gakumas Translation Data RU</h1>
         <p class="hero-sub">
-          Русская локализация данных игры Gakuen Idolmaster (Gakumas)
+          Русская локализация данных игры <strong>Gakuen Idolmaster (Gakumas)</strong>
           для <a href="https://github.com/chinosk6/gakuen-imas-localify" target="_blank" rel="noopener">gakuen-imas-localify</a>.
-          Версии для Android и ПК (DMM).
         </p>
+        <p class="hero-plat">Версии для <strong>ПК (DMM)</strong> и <strong>Android</strong></p>
         <div class="hero-buttons">
           <!-- TODO: заменить # на ссылку на статью ВК -->
           <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Статья ВК</a>
@@ -38,43 +47,51 @@
       </div>
     </section>
 
-    <section class="section" id="download">
-      <div class="container">
-        <h2>Скачать</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Android</h3>
-            <p>Версия локализации для мультиплеера на Android-устройствах. Кастомный шрифт идёт в комплекте.</p>
-            <!-- TODO: заменить ссылку на актуальный релиз -->
-            <a class="btn btn-primary" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU/releases" target="_blank" rel="noopener">Скачать для Android</a>
-          </article>
-          <article class="card">
-            <h3>ПК (DMM)</h3>
-            <p>Версия локализации для компьютерной версии игры через DMM. Включает кастомный шрифт для ПК.</p>
-            <!-- TODO: заменить ссылку на актуальный релиз -->
-            <a class="btn btn-primary" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU/releases" target="_blank" rel="noopener">Скачать для ПК (DMM)</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="install">
       <div class="container">
         <h2>Установка</h2>
         <p class="lead">
-          Актуальные инструкции по установке мода для разных платформ, каналы для баг-репортов
-          и координация перевода — на нашем Discord-сервере.
+          Выберите платформу — вы увидите шаги установки и ссылку для скачивания.
+          Помощь и актуальные инструкции — на нашем Discord-сервере.
         </p>
 
-        <div class="stub">
-          <p class="stub-note">Ниже — черновик инструкции. Подробные пошаговые гайды появятся позже.</p>
+        <div class="platform-tabs" role="tablist" aria-label="Выбор платформы">
+          <button class="platform-tab active" type="button" role="tab" aria-selected="true" data-platform="pc">ПК (DMM)</button>
+          <button class="platform-tab" type="button" role="tab" aria-selected="false" data-platform="android">Android</button>
+        </div>
+
+        <div class="platform-panel" id="panel-pc" role="tabpanel">
+          <div class="platform-head">
+            <h3>ПК (DMM)</h3>
+            <p>Локализация для компьютерной версии игры через DMM. Кастомный шрифт для ПК идёт в комплекте.</p>
+            <!-- TODO: заменить ссылку на актуальный релиз -->
+            <a class="btn btn-primary" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU/releases" target="_blank" rel="noopener">Скачать для ПК (DMM)</a>
+          </div>
+          <!-- Шаблон для ПК (DMM): отредактируйте и добавьте свои шаги ниже -->
           <ol class="steps">
-            <li>Скачайте нужную версию локализации (Android или ПК / DMM) из раздела Releases.</li>
             <li>Установите и настройте <a href="https://github.com/chinosk6/gakuen-imas-localify" target="_blank" rel="noopener">gakuen-imas-localify</a>.</li>
-            <li>Поместите файлы локализации в каталог приложения (детали в Discord).</li>
+            <li>Скачайте версию локализации кнопкой выше и распакуйте архив.</li>
+            <li>Перенесите файлы <code>local-files</code> в каталог приложения (подробности — в Discord).</li>
+            <li>Запустите игру через DMM и проверьте перевод.</li>
+          </ol>
+          <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Вопросы по установке — в Discord</a>
+        </div>
+
+        <div class="platform-panel" id="panel-android" role="tabpanel" hidden>
+          <div class="platform-head">
+            <h3>Android</h3>
+            <p>Локализация для Android-устройств. Кастомный шрифт для Android идёт в комплекте.</p>
+            <!-- TODO: заменить ссылку на актуальный релиз -->
+            <a class="btn btn-primary" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU/releases" target="_blank" rel="noopener">Скачать для Android</a>
+          </div>
+          <!-- Шаблон для Android: отредактируйте и добавьте свои шаги ниже -->
+          <ol class="steps">
+            <li>Установите и настройте <a href="https://github.com/chinosk6/gakuen-imas-localify" target="_blank" rel="noopener">gakuen-imas-localify</a>.</li>
+            <li>Скачайте версию локализации кнопкой выше и распакуйте архив.</li>
+            <li>Перенесите файлы <code>local-files</code> в каталог приложения (подробности — в Discord).</li>
             <li>Запустите игру и проверьте перевод.</li>
           </ol>
-          <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Полные инструкции в Discord</a>
+          <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Вопросы по установке — в Discord</a>
         </div>
       </div>
     </section>
@@ -123,7 +140,14 @@
         ·
         <a href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Discord</a>
       </p>
+      <p class="sr-only">
+        Gakumas русификатор скачать, русский перевод Gakumas, Gakumas на русском, русская локализация Gakuen Idolmaster,
+        русификатор Gakumas Android, русификатор Gakumas ПК DMM, gakuen-imas-localify русский перевод, Гакумас русификатор,
+        Gakumas мод на русском, русская версия Gakumas, русификатор школы айдолов
+      </p>
     </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
