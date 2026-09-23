@@ -195,11 +195,10 @@
 
   shots.forEach(function (img) {
     function applyEdgeGlow() {
+      enableBlurGlow();
       var color = getEdgeColor(img);
       if (color) {
         img.style.setProperty("--shot-glow", color);
-      } else {
-        enableBlurGlow();
       }
     }
     function enableBlurGlow() {
