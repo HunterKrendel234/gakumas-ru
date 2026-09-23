@@ -49,13 +49,22 @@
     }
   })();
 
-  document.querySelectorAll('a[href^="#help-"]').forEach(function (a) {
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
-      var target = document.getElementById(a.getAttribute("href").slice(1));
+      var id = a.getAttribute("href").slice(1);
+      if (!id) return;
+      var target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
+      var header = document.querySelector(".header");
+      var headerH = header ? header.offsetHeight : 0;
       var top = target.getBoundingClientRect().top + window.pageYOffset;
-      var y = top - window.innerHeight / 2 + target.offsetHeight / 2;
+      var y;
+      if (id.indexOf("help-") === 0) {
+        y = top - window.innerHeight / 2 + target.offsetHeight / 2;
+      } else {
+        y = top - headerH;
+      }
       window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
     });
   });
