@@ -8,8 +8,6 @@
   --primary-hover: #bf8f8e;
   --accent: #5865f2;
   --accent-hover: #4752c4;
-  --glow: 0;
-  --glow-op: 0.30;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,7 +21,6 @@
     --primary-hover: #e0baba;
     --accent: #7983f5;
     --accent-hover: #6470ec;
-    --glow: 1;
   }
 }
 
@@ -37,7 +34,6 @@
   --primary-hover: #e0baba;
   --accent: #7983f5;
   --accent-hover: #6470ec;
-  --glow: 1;
 }
 
 * {
@@ -509,33 +505,7 @@ code {
   margin-top: 8px;
 }
 
-.shot-wrap {
-  position: relative;
-  display: flex;
-}
-
-.shot-wrap::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--shot-src, none);
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-  filter: blur(16px) saturate(1.4);
-  transform: scale(1.06);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  pointer-events: none;
-}
-
-.shot-wrap.glow-blur::before {
-  opacity: calc(var(--glow) * var(--glow-op, 0.25));
-}
-
-
 .shot {
-  position: relative;
   display: block;
   width: auto;
   height: auto;
@@ -545,8 +515,6 @@ code {
   border-radius: 8px;
   cursor: zoom-in;
   background: var(--bg);
-  box-shadow: 0 0 18px 4px color-mix(in srgb, var(--shot-glow, transparent) calc(var(--glow) * 100%), transparent);
-  transition: box-shadow 0.25s ease, opacity 0.25s ease;
 }
 
 

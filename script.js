@@ -153,72 +153,7 @@
   }
 
   var shots = document.querySelectorAll(".shot");
-
-  function getEdgeColor(img) {
-    var nw = img.naturalWidth;
-    var nh = img.naturalHeight;
-    if (!nw || !nh) return "";
-    var s = Math.min(1, 160 / Math.max(nw, nh));
-    var w = Math.max(1, Math.round(nw * s));
-    var h = Math.max(1, Math.round(nh * s));
-    try {
-      var canvas = document.createElement("canvas");
-      canvas.width = w;
-      canvas.height = h;
-      var ctx = canvas.getContext("2d", { willReadFrequently: true });
-      ctx.drawImage(img, 0, 0, w, h);
-      var depth = Math.max(1, Math.round(Math.min(w, h) * 0.08));
-      var strips = [
-        ctx.getImageData(0, 0, depth, h).data,
-        ctx.getImageData(w - depth, 0, depth, h).data,
-        ctx.getImageData(0, 0, w, depth).data,
-        ctx.getImageData(0, h - depth, w, depth).data
-      ];
-      var r = 0, g = 0, b = 0, count = 0;
-      for (var k = 0; k < strips.length; k++) {
-        var d = strips[k];
-        for (var i = 0; i < d.length; i += 4) {
-          var a = d[i + 3];
-          if (a < 128) continue;
-          r += d[i] * a;
-          g += d[i + 1] * a;
-          b += d[i + 2] * a;
-          count += a;
-        }
-      }
-      if (!count) return "";
-      return "rgb(" + Math.round(r / count) + "," + Math.round(g / count) + "," + Math.round(b / count) + ")";
-    } catch (e) {
-      return "";
-    }
-  }
-
   shots.forEach(function (img) {
-    function applyEdgeGlow() {
-      enableBlurGlow();
-      var color = getEdgeColor(img);
-      if (color) {
-        img.style.setProperty("--shot-glow", color);
-      }
-    }
-    function enableBlurGlow() {
-      var wrap = img.parentElement;
-      if (wrap && wrap.classList.contains("shot-wrap")) {
-        wrap.classList.add("glow-blur");
-      }
-    }
-    if (!img.parentElement || !img.parentElement.classList.contains("shot-wrap")) {
-      var wrap = document.createElement("span");
-      wrap.className = "shot-wrap";
-      wrap.style.setProperty("--shot-src", "url(\"" + (img.currentSrc || img.src) + "\")");
-      img.parentNode.insertBefore(wrap, img);
-      wrap.appendChild(img);
-    }
-    if (img.complete) {
-      applyEdgeGlow();
-    } else {
-      img.addEventListener("load", applyEdgeGlow, { once: true });
-    }
     img.addEventListener("click", function () {
       naturalW = img.naturalWidth || 1;
       naturalH = img.naturalHeight || 1;
