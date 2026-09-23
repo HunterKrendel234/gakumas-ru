@@ -67,7 +67,9 @@ a {
 .header {
   position: sticky;
   top: 0;
-  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
   z-index: 10;
 }
@@ -526,6 +528,7 @@ code {
   cursor: zoom-in;
   background: var(--bg);
 }
+
 
 .shot-block figcaption {
   flex-basis: 100%;
