@@ -541,7 +541,7 @@ code {
 }
 
 .shot-wrap.glow-blur::before {
-  opacity: calc(var(--glow) * 0.25);
+  opacity: calc(var(--glow) * 0.15);
 }
 
 .shot {
