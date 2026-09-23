@@ -1,31 +1,30 @@
-# Gakumas-Translation-Data-RU-Site
+# gakumas-ru
 
-Простой сайт-страница для проекта [Gakumas Translation Data RU](https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU) — русская локализация Gakumas для Android и ПК (DMM).
+Сайт проекта [Gakumas Translation Data RU](https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU) — русская локализация Gakumas для Android и ПК (DMM).
+Живая версия: <https://HunterKrendel234.github.io/gakumas-ru/>
 
 ## Структура
 
 - `index.html` — одностраничный сайт (без фреймворков)
 - `styles.css` — стили (светлая/тёмная тема)
-- `script.js` — переключатель темы и выбор платформы в разделе «Установка»
+- `script.js` — переключатель темы, выбор платформы и подсветка скриншотов
 
 ## Редактирование
 
 - Шаги установки для ПК и Android заполняются прямо в `index.html` в блоках `#panel-pc` и `#panel-android`.
 - Блок «Важно! Разверните и прочитайте!» — тоже в шаблонах: замените пункты на реальную инструкцию по сохранению данных.
-- Скриншоты: кладите файлы в `img/` и добавляйте в шаги `<img class="shot" src="img/ваш-файл.png" alt="...">`. Клик по скриншоту открывает его на весь экран с зумом колёсиком (стили и обработчик уже готовы, пример в шаблонах).
+- Скриншоты: кладите файлы в `img/` и добавляйте в шаги `<img class="shot" src="img/ваш-файл.png" alt="...">`. Клик по скриншоту открывает его на весь экран с зумом колёсиком (стили и обработчик уже готовы, пример в шаблонах). Подсветку вокруг скриншотов скрипт строит сам по цветам краёв (canvas) или размытой копией — работает только в тёмной теме.
 - Кнопки «Статья ВК» и «Скачать» — заглушки, ссылки помечены комментариями `TODO` в `index.html`.
 
 ## Как задеплоить на GitHub Pages
 
-1. Создайте репозиторий на GitHub и запушьте этот репозиторий:
-   ```bash
-   git remote add origin https://github.com/<your-username>/<repo-name>.git
-   git push -u origin main
-   ```
+1. Репозиторий должен быть **публичным** (Pages не работает на приватных без Pro).
 2. Откройте репозиторий на GitHub → **Settings → Pages**.
-3. В блоке **Build and deployment** выберете **Source: Deploy from a branch**.
-4. Укажите ветку `main`, папку `/root` и нажмите **Save**.
-5. Через несколько минут сайт будет доступен по адресу `https://<your-username>.github.io/<repo-name>/`.
+3. В блоке **Build and deployment** выберите **Source: Deploy from a branch**.
+4. Укажите ветку `main`, папку `/` (корень) и нажмите **Save**.
+5. Через пару минут сайт будет доступен по адресу `https://HunterKrendel234.github.io/gakumas-ru/`.
+
+> Если переименовываете репозиторий — делайте это **до** включения Pages: старый адрес сайта после переименования не редиректится.
 
 ## TODO
 
