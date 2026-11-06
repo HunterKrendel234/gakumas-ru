@@ -8,6 +8,8 @@
   --primary-hover: #bf8f8e;
   --accent: #5865f2;
   --accent-hover: #4752c4;
+  --tg: #0088CC;
+  --tg-hover: #24A1DE;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +23,8 @@
     --primary-hover: #e0baba;
     --accent: #7983f5;
     --accent-hover: #6470ec;
+    --tg: #0088CC;
+    --tg-hover: #24A1DE;
   }
 }
 
@@ -34,6 +38,8 @@
   --primary-hover: #e0baba;
   --accent: #7983f5;
   --accent-hover: #6470ec;
+  --tg: #0088CC;
+  --tg-hover: #24A1DE;
 }
 
 * {
@@ -230,6 +236,16 @@ a {
 .btn-secondary:hover {
   background: var(--accent-hover);
 }
+
+.tg-secondary {
+  background: var(--tg);
+  color: #fff;
+}
+
+.tg-secondary:hover {
+  background: var(--tg-hover);
+}
+
 
 .btn-ghost {
   background: transparent;
