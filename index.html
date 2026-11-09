@@ -13,6 +13,7 @@
       <a class="logo" href="#top">Gakumas RU</a>
       <div class="header-actions">
         <nav class="nav">
+          <a href="#updates">Обновления</a>
           <a href="#gallery">Скриншоты</a>
           <a href="#install">Установка</a>
           <a href="#about">О проекте</a>
@@ -40,7 +41,33 @@
           <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Discord</a>
           <a class="btn tg-secondary" href="https://t.me/gakumasu_ru" target="_blank" rel="noopener">Telegram</a>
           <a class="btn btn-ghost" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU" target="_blank" rel="noopener">Репозиторий на GitHub</a>
-          <a class="btn btn-primary" href="#install" >Установить</a>
+          <a class="btn btn-primary" href="#install">Установить</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="updates">
+      <div class="container">
+        <h2>Последние обновления</h2>
+        <div class="update-list">
+          <div class="update-item">
+            <h3>Автопатчинг игры на Android</h3>
+            <p>
+              Больше не нужно патчить игру вручную. При выходе обновлений собирается готовый APK — для установки достаточно скачать <code>Gakumas-RU.apk</code> и менеджер <code>Gakumas-Localify-RU.apk</code> из <a href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">релизов APK-gakumasu-RU</a>.
+            </p>
+          </div>
+          <div class="update-item">
+            <h3>Автообновление перевода</h3>
+            <p>
+              Синхронизация с английским репозиторием и перевод новых строк (интерфейс, карточки, песни и сюжетные комму) теперь выполняются автоматически каждый день.
+            </p>
+          </div>
+          <div class="update-item">
+            <h3>Открытие группы в Telegram</h3>
+            <p>
+              Помимо Discord-сервера у проекта открылась группа в <a href="https://t.me/gakumasu_ru" target="_blank" rel="noopener">Telegram</a> — там публикуются обновления, новости и оказывается помощь с установкой.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -76,8 +103,10 @@
         <div class="platform-panel" id="panel-pc" role="tabpanel">
           <div class="platform-head">
             <h3>ПК (DMM)</h3>
-            <p>Локализация для компьютерной версии игры через DMM.<br>Сложность: <strong>Легкая (3 шага)</strong>.
-            <br><strong>Если будет трудно - <a href="#help-pc">загляните сюда</a>.</strong>
+            <p>
+              Локализация для компьютерной версии игры через DMM.<br>Сложность: <strong>Легкая (3 шага)</strong>.<br>
+              <strong>Если будет трудно - <a href="#help-pc">загляните сюда</a>.</strong>
+            </p>
             <details class="warn">
               <summary>Важно! Сохраните прогресс игры перед установкой!</summary>
               <div class="warn-body">
@@ -95,19 +124,20 @@
                       <img class="shot" src="img/save1.jpg" alt="Скриншот" width="360" height="780">
                     </figure>
                   </li>
-                  <li>В открывшемся меню выберите <strong>Связь данных</strong>.</li>
-                  <figure class="shot-block">
-                    <img class="shot" src="img/save2.jpg" alt="Скриншот" width="360" height="780">
-                  </figure>
+                  <li>В открывшемся меню выберите <strong>Связь данных</strong>.
+                    <figure class="shot-block">
+                      <img class="shot" src="img/save2.jpg" alt="Скриншот" width="360" height="780">
+                    </figure>
+                  </li>
                 </ol>
-               <h3>📥 Загрузка сохранения</h3>
-               <p>Если необходимо загрузить уже существующий прогресс на другом устройстве:</p>
-               <ol>
-                <li>На титульном экране игры нажмите <strong>Связь данных</strong>.</li>
-                <li>Войдите в тот же <strong>Bandai Namco ID</strong>, к которому ранее был привязан прогресс.</li>
-                <li>Следуйте инструкциям на экране для восстановления данных.</li>
-               </ol>
-               <li class="callout callout-warn">⚠️ Не создавайте новую привязку, если хотите загрузить существующее сохранение. Используйте тот же Bandai Namco ID, который был привязан к вашему предыдущему прогрессу.</li> 
+                <h3>📥 Загрузка сохранения</h3>
+                <p>Если необходимо загрузить уже существующий прогресс на другом устройстве:</p>
+                <ol>
+                  <li>На титульном экране игры нажмите <strong>Связь данных</strong>.</li>
+                  <li>Войдите в тот же <strong>Bandai Namco ID</strong>, к которому ранее был привязан прогресс.</li>
+                  <li>Следуйте инструкциям на экране для восстановления данных.</li>
+                  <li class="callout callout-warn">⚠️ Не создавайте новую привязку, если хотите загрузить существующее сохранение. Используйте тот же Bandai Namco ID, который был привязан к вашему предыдущему прогрессу.</li>
+                </ol>
               </div>
             </details>
           </div>
@@ -115,8 +145,8 @@
           <h3>📦 Шаг 1. Подготовка</h3>
           <ol class="steps">
             <li class="callout callout-warn">⚠️ Для работы игры как на ПК, так и на смартфоне требуется японский VPN-сервер.</li>
-            <li>Скачайте <code>DMM_GakumasLocalify_v-.-.-.zip</code>  последней версии:  <a class="btn btn-primary" href="https://github.com/chinosk6/gakuen-imas-localify/releases" target="_blank" rel="noopener">Gakumas Localify</a></li>
-            <li>Зайдите на <strong>DMM Gakumas</strong>:  <a class="btn btn-primary" href="https://dmg-gakuen.idolmaster-official.jp" target="_blank" rel="noopener">DMM Gakumas</a></li>
+            <li>Скачайте <code>DMM_GakumasLocalify_v-.-.-.zip</code> последней версии: <a class="btn btn-primary" href="https://github.com/chinosk6/gakuen-imas-localify/releases" target="_blank" rel="noopener">Gakumas Localify</a></li>
+            <li>Зайдите на <strong>DMM Gakumas</strong>: <a class="btn btn-primary" href="https://dmg-gakuen.idolmaster-official.jp" target="_blank" rel="noopener">DMM Gakumas</a></li>
             <li class="callout callout-warn">⚠️ Для работы DMM Game Player и игры требуется японский VPN-сервер.<br>Его отключение и запуск DMM Game Player приведет к выходу из аккаунта DMM Game Player.</li>
             <li>Нажмите <strong>Game Start</strong>.</li>
             <li>Скачайте и установите <strong>DMM Game Player</strong> выбрав его в качестве средства запуска.</li>
@@ -125,6 +155,7 @@
             <li>После запустите игру.</li>
             <li class="callout callout-tip">💡 Если работает, можно закрыть игру.</li>
           </ol>
+
           <h3>🛠️ Шаг 2. Установка</h3>
           <ol class="steps">
             <li>Откройте скаченный ранее архив <strong>DMM_GakumasLocalify_v-.-.-.zip</strong></li>
@@ -132,30 +163,32 @@
             <li class="callout callout-tip">💡 Папка <strong>gakumas-local</strong> и файл <strong>version.dll</strong><br>Путь к игре: <code>C:\Users\%USERPROFILE%\gakumas</code></li>
             <li>Удалите все в папке <strong>gakumas-local</strong>.</li>
           </ol>
+
           <h3>🌐 Шаг 3. Установка русской локализации</h3>
           <ol class="steps">
             <li>Запустите игру и нажмите <strong>Ctrl + U</strong> чтобы открыть <strong>Gakumas Config GUI</strong>.</li>
-            <li>Раскройте все пункты и выставите параметры как на скриншоте.</li>
+            <li>Раскройте все пункты и выставите параметры как на скриншоте.
               <figure class="shot-block">
                 <img class="shot" src="img/pc.jpg" alt="Параметры" width="360" height="200">
               </figure>
+            </li>
             <li class="callout callout-tip">💡 За правый край окна конфигурации можно растянуть окно.</li>
             <li>В пункте <strong>API Address (Github Latest Release API)</strong> замените стандартную ссылку на:</li>
             <div class="link-box">
               <button class="copy-btn" type="button"><span class="copy-label">Скопировать</span></button>
-              <a class="link-box-link" href="#" target="_blank" rel="noopener">https://api.github.com/repos/HunterKrendel234/Gakumas-Translation-Data-RU/releases/latest</a>
+              <a class="link-box-link" href="https://api.github.com/repos/HunterKrendel234/Gakumas-Translation-Data-RU/releases/latest" target="_blank" rel="noopener">https://api.github.com/repos/HunterKrendel234/Gakumas-Translation-Data-RU/releases/latest</a>
             </div>
-
-            <li>Нажмите <strong>Chek</strong>.</li>
+            <li>Нажмите <strong>Check</strong>.</li>
             <li>Скачайте обновление локализации и перезапустите игру.</li>
           </ol>
+
           <h3>🎉 Готово!</h3>
           <h4>Русская локализация установлена.
             <br>В дальнейшем игру можно запускать обычным способом.
             <br>Через её стандартный значок на рабочем столе.
             <br><br>Приятной игры!<br><br>
           </h4>
-          <div class="platform-foot" id="help-pc"> 
+          <div class="platform-foot" id="help-pc">
             <h3>Возникли трудности?<br><a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">💬 Поддержка в Discord</a>  ·  <a class="btn tg-secondary" href="https://t.me/gakumasu_ru" target="_blank" rel="noopener">💬 Поддержка в Telegram</a></h3>
           </div>
         </div>
@@ -163,8 +196,10 @@
         <div class="platform-panel" id="panel-android" role="tabpanel" hidden>
           <div class="platform-head">
             <h3>Android</h3>
-            <p>Локализация для Android-устройств.<br>Сложность: <strong>Легкая (2 шага)</strong>.
-            <br><strong>Если будет трудно - <a href="#help-android">загляните сюда</a>.</strong>
+            <p>
+              Локализация для Android-устройств (готовый пропатченный APK).<br>Сложность: <strong>Легкая (2 шага)</strong>.<br>
+              <strong>Если будет трудно - <a href="#help-android">загляните сюда</a>.</strong>
+            </p>
             <details class="warn">
               <summary>Важно! Сохраните прогресс игры перед установкой!</summary>
               <div class="warn-body">
@@ -182,38 +217,42 @@
                       <img class="shot" src="img/save1.jpg" alt="Скриншот" width="360" height="780">
                     </figure>
                   </li>
-                  <li>В открывшемся меню выберите <strong>Связь данных</strong>.</li>
-                  <figure class="shot-block">
-                    <img class="shot" src="img/save2.jpg" alt="Скриншот" width="360" height="780">
-                  </figure>
+                  <li>В открывшемся меню выберите <strong>Связь данных</strong>.
+                    <figure class="shot-block">
+                      <img class="shot" src="img/save2.jpg" alt="Скриншот" width="360" height="780">
+                    </figure>
+                  </li>
                 </ol>
-               <h3>📥 Загрузка сохранения</h3>
-               <p>Если необходимо загрузить уже существующий прогресс на другом устройстве:</p>
-               <ol>
-                <li>На титульном экране игры нажмите <strong>Связь данных</strong>.</li>
-                <li>Войдите в тот же <strong>Bandai Namco ID</strong>, к которому ранее был привязан прогресс.</li>
-                <li>Следуйте инструкциям на экране для восстановления данных.</li>
-               </ol>
-               <li class="callout callout-warn">⚠️ Не создавайте новую привязку, если хотите загрузить существующее сохранение. Используйте тот же Bandai Namco ID, который был привязан к вашему предыдущему прогрессу.</li> 
+                <h3>📥 Загрузка сохранения</h3>
+                <p>Если необходимо загрузить уже существующий прогресс на другом устройстве:</p>
+                <ol>
+                  <li>На титульном экране игры нажмите <strong>Связь данных</strong>.</li>
+                  <li>Войдите в тот же <strong>Bandai Namco ID</strong>, к которому ранее был привязан прогресс.</li>
+                  <li>Следуйте инструкциям на экране для восстановления данных.</li>
+                  <li class="callout callout-warn">⚠️ Не создавайте новую привязку, если хотите загрузить существующее сохранение. Используйте тот же Bandai Namco ID, который был привязан к вашему предыдущему прогрессу.</li>
+                </ol>
               </div>
             </details>
           </div>
+
           <h3>📦 Шаг 1. Подготовка</h3>
           <ol class="steps">
             <li class="callout callout-warn">⚠️ Для работы игры как на ПК, так и на смартфоне требуется японский VPN-сервер.</li>
-            <li>Загляните в Release <strong>APK-gakumasu-RU</strong>:  <a class="btn btn-primary" href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">APK-gakumasu-RU</a></li>
+            <li>Загляните в Release <strong>APK-gakumasu-RU</strong>: <a class="btn btn-primary" href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">APK-gakumasu-RU</a></li>
             <li>Скачать менеджер <strong>Gakumas-Localify-RU.apk</strong>.</li>
             <li>Скачать готовый APK игры <strong>Gakumas-RU.apk</strong>.</li>
             <li>Удалите <strong>(если есть)</strong> ранее установленные <strong>Localify и игру</strong>.</li>
           </ol>
+
           <h3>🛠️ Шаг 2. Установка</h3>
           <ol class="steps">
             <li>Установите <strong>Gakumas-Localify-RU.apk</strong>.</li>
             <li>Установите игру <strong>Gakumas-RU.apk</strong>.</li>
             <li>Зайдите в <strong>Localify</strong> и обновите перевод.</li>
-            <li class="callout callout-tip">💡  Localify сам предложит его обновить.</li>
+            <li class="callout callout-tip">💡 Localify сам предложит его обновить.</li>
             <li>Нажать на правую кнопку со стрелкой, чтобы запустить игру.</li>
           </ol>
+
           <h3>🎉 Готово!</h3>
           <h4>Русская локализация установлена.
             <br>В дальнейшем игру можно запускать обычным способом.
@@ -225,41 +264,46 @@
           </div>
         </div>
 
-
         <div class="platform-panel" id="panel-update" role="tabpanel" hidden>
           <div class="platform-head">
             <h3>Как обновлять перевод, мод или игру?</h3>
           </div>
+
           <h3>Android</h3>
+          <h4 class="sub-heading">Обновить перевод?</h4>
           <ol class="steps">
-            <h3>Обновить перевод?</h3>
             <li>Зайдите в Localify. Он предложит обновить перевод.</li>
           </ol>
+
+          <h4 class="sub-heading">Обновить игру?</h4>
           <ol class="steps">
-            <h3>Обновить игру?</h3>
-            <li>Загляните в Release <strong>APK-gakumasu-RU</strong>:  <a class="btn btn-primary" href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">APK-gakumasu-RU</a></li>
+            <li>Загляните в Release <strong>APK-gakumasu-RU</strong>: <a class="btn btn-primary" href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">APK-gakumasu-RU</a></li>
             <li>Скачайте новый <strong>Gakumas-RU.apk</strong>, запустите его и нажмите обновить.</li>
           </ol>
+
+          <h4 class="sub-heading">Обновить мод?</h4>
           <ol class="steps">
-            <h3>Обновить мод?</h3>
-            <li>Загляните в Release <strong>APK-gakumasu-RU</strong>:  <a class="btn btn-primary" href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">APK-gakumasu-RU</a></li>
+            <li>Загляните в Release <strong>APK-gakumasu-RU</strong>: <a class="btn btn-primary" href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">APK-gakumasu-RU</a></li>
             <li>Скачайте новый <strong>Gakumas-Localify-RU.apk и Gakumas-RU.apk</strong>, запустите их и нажмите обновить.</li>
           </ol>
 
-          <h3>ПК (DMM)</h3>
-          <ol class="steps">
-            <h3>Обновить перевод?</h3>
-            <li>При запуске игры будет предложено обновить перевод в окне.</li>
-            <li><strong>Ctrl + U</strong> и разверните вкладку <strong>Resource Settings</strong>, чтобы видеть прогресс.</li>
-            <li>После обновления перезапустите игру.</li>
-          </ol>
-          <ol class="steps">
-            <h3>Обновить мод?</h3>
-            <li>Скачайте <code>DMM_GakumasLocalify_v-.-.-.zip</code>  последней версии:  <a class="btn btn-primary" href="https://github.com/chinosk6/gakuen-imas-localify/releases" target="_blank" rel="noopener">Gakumas Localify</a></li>
-            <li>Откройте скаченный ранее архив <strong>DMM_GakumasLocalify_v-.-.-.zip</strong></li>
-            <li>Скопируйте из архива файл в корень с игрой.</li>
-            <li class="callout callout-tip">💡 Файл <strong>version.dll</strong><br>Путь к игре: <code>C:\Users\%USERPROFILE%\gakumas</code></li>
-          </ol>
+          <div class="platform-foot">
+            <h3>ПК (DMM)</h3>
+            <h4 class="sub-heading">Обновить перевод?</h4>
+            <ol class="steps">
+              <li>При запуске игры будет предложено обновить перевод в окне.</li>
+              <li><strong>Ctrl + U</strong> и разверните вкладку <strong>Resource Settings</strong>, чтобы видеть прогресс.</li>
+              <li>После обновления перезапустите игру.</li>
+            </ol>
+
+            <h4 class="sub-heading">Обновить мод?</h4>
+            <ol class="steps">
+              <li>Скачайте <code>DMM_GakumasLocalify_v-.-.-.zip</code> последней версии: <a class="btn btn-primary" href="https://github.com/chinosk6/gakuen-imas-localify/releases" target="_blank" rel="noopener">Gakumas Localify</a></li>
+              <li>Откройте скаченный ранее архив <strong>DMM_GakumasLocalify_v-.-.-.zip</strong></li>
+              <li>Скопируйте из архива файл в корень с игрой.</li>
+              <li class="callout callout-tip">💡 Файл <strong>version.dll</strong><br>Путь к игре: <code>C:\Users\%USERPROFILE%\gakumas</code></li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
