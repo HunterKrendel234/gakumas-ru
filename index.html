@@ -51,6 +51,12 @@
         <h2>Последние обновления</h2>
         <div class="update-list">
           <div class="update-item">
+            <h3>Полностью обновлённый перевод через платную мощную LLM</h3>
+            <p>
+              Вся текстовая база игры (интерфейс, карточки, лирика песен и сюжетные комму) была полностью переведена заново с помощью платной мощной LLM-модели с единым глоссарием и учётом манеры речи каждого персонажа.
+            </p>
+          </div>
+          <div class="update-item">
             <h3>Автопатчинг игры на Android</h3>
             <p>
               Больше не нужно патчить игру вручную. При выходе обновлений собирается готовый APK — для установки достаточно скачать <code>Gakumas-RU.apk</code> и менеджер <code>Gakumas-Localify-RU.apk</code> из <a href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">релизов APK-gakumasu-RU</a>.
@@ -59,7 +65,7 @@
           <div class="update-item">
             <h3>Автообновление перевода</h3>
             <p>
-              Синхронизация с английским репозиторием и перевод новых строк (интерфейс, карточки, песни и сюжетные комму) теперь выполняются автоматически каждый день.
+              Синхронизация с английским репозиторием и перевод новых строк теперь выполняются автоматически дважды в сутки.
             </p>
           </div>
           <div class="update-item">
@@ -75,14 +81,29 @@
     <section class="section" id="gallery">
       <div class="container">
         <h2>Скриншоты</h2>
-        <figure class="shot-block">
-          <img class="shot" src="img/image1.jpg" alt="Ринами" width="360" height="200">
-        </figure>
-        <figure class="shot-block">
-          <img class="shot" src="img/image2.jpg" alt="Цубамэ" width="360" height="200">
-          <img class="shot" src="img/image3.jpg" alt="Хатая" width="360" height="200">
-          <img class="shot" src="img/image4.jpg" alt="Ринами" width="360" height="200">
-        </figure>
+        <div class="carousel" id="gallery-carousel" aria-label="Галерея скриншотов">
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <img class="shot" src="img/image1.jpg" alt="Ринами" decoding="async">
+              </div>
+              <div class="carousel-slide">
+                <img class="shot" src="img/image2.jpg" alt="Цубамэ" loading="lazy" decoding="async">
+              </div>
+              <div class="carousel-slide">
+                <img class="shot" src="img/image3.jpg" alt="Хатая" loading="lazy" decoding="async">
+              </div>
+              <div class="carousel-slide">
+                <img class="shot" src="img/image4.jpg" alt="Ринами" loading="lazy" decoding="async">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" type="button" data-dir="prev" aria-label="Предыдущий скриншот">&larr; Назад</button>
+            <div class="carousel-dots" role="tablist" aria-label="Выбор скриншота"></div>
+            <button class="carousel-btn" type="button" data-dir="next" aria-label="Следующий скриншот">Вперёд &rarr;</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -121,12 +142,12 @@
                   <li>После начала игры и прохождения первых сцен/первого продюсирования откройте главное меню.</li>
                   <li>Нажмите на иконку с тремя полосками в правой части экрана.
                     <figure class="shot-block">
-                      <img class="shot" src="img/save1.jpg" alt="Скриншот" width="360" height="780">
+                      <img class="shot" src="img/save1.jpg" alt="Скриншот" width="360" height="780" loading="lazy" decoding="async">
                     </figure>
                   </li>
                   <li>В открывшемся меню выберите <strong>Связь данных</strong>.
                     <figure class="shot-block">
-                      <img class="shot" src="img/save2.jpg" alt="Скриншот" width="360" height="780">
+                      <img class="shot" src="img/save2.jpg" alt="Скриншот" width="360" height="780" loading="lazy" decoding="async">
                     </figure>
                   </li>
                 </ol>
@@ -169,7 +190,7 @@
             <li>Запустите игру и нажмите <strong>Ctrl + U</strong> чтобы открыть <strong>Gakumas Config GUI</strong>.</li>
             <li>Раскройте все пункты и выставите параметры как на скриншоте.
               <figure class="shot-block">
-                <img class="shot" src="img/pc.jpg" alt="Параметры" width="360" height="200">
+                <img class="shot" src="img/pc.jpg" alt="Параметры" width="360" height="200" loading="lazy" decoding="async">
               </figure>
             </li>
             <li class="callout callout-tip">💡 За правый край окна конфигурации можно растянуть окно.</li>
@@ -214,12 +235,12 @@
                   <li>После начала игры и прохождения первых сцен/первого продюсирования откройте главное меню.</li>
                   <li>Нажмите на иконку с тремя полосками в правой части экрана.
                     <figure class="shot-block">
-                      <img class="shot" src="img/save1.jpg" alt="Скриншот" width="360" height="780">
+                      <img class="shot" src="img/save1.jpg" alt="Скриншот" width="360" height="780" loading="lazy" decoding="async">
                     </figure>
                   </li>
                   <li>В открывшемся меню выберите <strong>Связь данных</strong>.
                     <figure class="shot-block">
-                      <img class="shot" src="img/save2.jpg" alt="Скриншот" width="360" height="780">
+                      <img class="shot" src="img/save2.jpg" alt="Скриншот" width="360" height="780" loading="lazy" decoding="async">
                     </figure>
                   </li>
                 </ol>
@@ -364,7 +385,7 @@
 
   <div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Просмотр скриншота">
     <button class="lightbox-close" type="button" aria-label="Закрыть">&times;</button>
-    <img src="" alt="">
+    <img alt="">
     <p class="lightbox-hint">Колесо мыши / щипок - масштаб по курсору &middot; ПКМ / перетаскивание - перемещение &middot; Esc или крестик - закрыть</p>
   </div>
 

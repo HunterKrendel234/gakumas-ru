@@ -69,6 +69,74 @@
     });
   });
 
+  // Карусель скриншотов
+  var carousel = document.getElementById("gallery-carousel");
+  if (carousel) {
+    var track = carousel.querySelector(".carousel-track");
+    var slides = carousel.querySelectorAll(".carousel-slide");
+    var dotsContainer = carousel.querySelector(".carousel-dots");
+    var currentSlide = 0;
+    var slideCount = slides.length;
+    var dots = [];
+
+    function goToSlide(idx) {
+      currentSlide = (idx + slideCount) % slideCount;
+      track.style.transform = "translateX(-" + currentSlide * 100 + "%)";
+      dots.forEach(function (d, i) {
+        d.classList.toggle("active", i === currentSlide);
+      });
+    }
+
+    for (var i = 0; i < slideCount; i++) {
+      (function (index) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot" + (index === 0 ? " active" : "");
+        dot.setAttribute("aria-label", "Скриншот " + (index + 1));
+        dot.addEventListener("click", function () {
+          goToSlide(index);
+        });
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+      })(i);
+    }
+
+    carousel.querySelectorAll(".carousel-btn").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        goToSlide(currentSlide + (btn.dataset.dir === "next" ? 1 : -1));
+      });
+    });
+
+    // Поддержка свайпа пальцем на мобильных
+    var touchStartX = 0;
+    var touchStartY = 0;
+    var viewport = carousel.querySelector(".carousel-viewport");
+    viewport.addEventListener(
+      "touchstart",
+      function (e) {
+        if (e.touches.length === 1) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }
+      },
+      { passive: true }
+    );
+    viewport.addEventListener(
+      "touchend",
+      function (e) {
+        if (e.changedTouches.length === 1) {
+          var dx = e.changedTouches[0].clientX - touchStartX;
+          var dy = e.changedTouches[0].clientY - touchStartY;
+          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+            goToSlide(currentSlide + (dx < 0 ? 1 : -1));
+          }
+        }
+      },
+      { passive: true }
+    );
+  }
+
+  // Полноэкранный просмотр скриншотов (Lightbox)
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = lightbox.querySelector("img");
   var naturalW = 0;
@@ -145,23 +213,37 @@
 
   function closeShot() {
     lightbox.hidden = true;
-    lightboxImg.src = "";
+    lightboxImg.removeAttribute("src");
     document.body.style.overflow = "";
     pointers = {};
     panMode = null;
     lightboxImg.classList.remove("dragging");
   }
 
+  function openShot(img) {
+    naturalW = img.naturalWidth || 1;
+    naturalH = img.naturalHeight || 1;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || "";
+    fitToWindow();
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
   var shots = document.querySelectorAll(".shot");
   shots.forEach(function (img) {
     img.addEventListener("click", function () {
-      naturalW = img.naturalWidth || 1;
-      naturalH = img.naturalHeight || 1;
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt || "";
-      fitToWindow();
-      lightbox.hidden = false;
-      document.body.style.overflow = "hidden";
+      if (img.complete && img.naturalWidth) {
+        openShot(img);
+      } else {
+        img.addEventListener(
+          "load",
+          function () {
+            openShot(img);
+          },
+          { once: true }
+        );
+      }
     });
   });
 
