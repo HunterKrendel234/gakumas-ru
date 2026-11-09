@@ -41,6 +41,7 @@
           <a class="btn btn-secondary" href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Discord</a>
           <a class="btn tg-secondary" href="https://t.me/gakumasu_ru" target="_blank" rel="noopener">Telegram</a>
           <a class="btn btn-ghost" href="https://github.com/HunterKrendel234/Gakumas-Translation-Data-RU" target="_blank" rel="noopener">Репозиторий на GitHub</a>
+          <a class="btn btn-donate" href="https://pay.cloudtips.ru/p/b03c4696" target="_blank" rel="noopener">♡ Поддержать</a>
           <a class="btn btn-primary" href="#install">Установить</a>
         </div>
       </div>
@@ -53,25 +54,25 @@
           <div class="update-item">
             <h3>Полностью обновлённый перевод через платную мощную LLM</h3>
             <p>
-              Вся текстовая база игры (интерфейс, карточки, лирика песен и сюжетные комму) была полностью переведена заново с помощью платной мощной LLM-модели с единым глоссарием и учётом манеры речи каждого персонажа.
+              Вся текстовая база игры (интерфейс, карточки, лирика песен и сюжетные комму) была переведена заново с помощью платной мощной языковой модели с единым глоссарием и учётом манеры речи каждого персонажа.
             </p>
           </div>
           <div class="update-item">
             <h3>Автопатчинг игры на Android</h3>
             <p>
-              Больше не нужно патчить игру вручную. При выходе обновлений собирается готовый APK — для установки достаточно скачать <code>Gakumas-RU.apk</code> и менеджер <code>Gakumas-Localify-RU.apk</code> из <a href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">релизов APK-gakumasu-RU</a>.
+              Больше не нужно патчить игру вручную. При выходе обновлений собирается готовый APK. Для установки достаточно скачать <code>Gakumas-RU.apk</code> и менеджер <code>Gakumas-Localify-RU.apk</code> со страницы <a href="https://github.com/HunterKrendel234/APK-gakumasu-RU/releases/latest" target="_blank" rel="noopener">релизов</a>.
             </p>
           </div>
           <div class="update-item">
             <h3>Автообновление перевода</h3>
             <p>
-              Синхронизация с английским репозиторием и перевод новых строк теперь выполняются автоматически дважды в сутки.
+              Синхронизация с английским репозиторием и перевод новых строк теперь выполняются автоматически каждые 6 часов.
             </p>
           </div>
           <div class="update-item">
             <h3>Открытие группы в Telegram</h3>
             <p>
-              Помимо Discord-сервера у проекта открылась группа в <a href="https://t.me/gakumasu_ru" target="_blank" rel="noopener">Telegram</a> — там публикуются обновления, новости и оказывается помощь с установкой.
+              Помимо Discord-сервера, у проекта открылась группа в <a href="https://t.me/gakumasu_ru" target="_blank" rel="noopener">Telegram</a>. Там публикуются обновления, оказывается помощь с установкой и проходят обсуждения игры.
             </p>
           </div>
         </div>
@@ -374,6 +375,8 @@
         <a href="https://discord.gg/jgEz8CxKPn" target="_blank" rel="noopener">Discord</a>
         ·
         <a href="https://t.me/gakumasu_ru" target="_blank" rel="noopener">Telegram</a>
+        ·
+        <a href="https://pay.cloudtips.ru/p/b03c4696" target="_blank" rel="noopener">Поддержать</a>
       </p>
       <p class="sr-only">
         Gakumas русификатор скачать, русский перевод Gakumas, Gakumas на русском, русская локализация Gakuen Idolmaster,
@@ -384,9 +387,12 @@
   </footer>
 
   <div class="lightbox" id="lightbox" hidden role="dialog" aria-label="Просмотр скриншота">
+    <div class="lightbox-counter" id="lightbox-counter" hidden></div>
     <button class="lightbox-close" type="button" aria-label="Закрыть">&times;</button>
+    <button class="lightbox-nav lightbox-prev" type="button" aria-label="Предыдущий скриншот" hidden>&#8249;</button>
     <img alt="">
-    <p class="lightbox-hint">Колесо мыши / щипок - масштаб по курсору &middot; ПКМ / перетаскивание - перемещение &middot; Esc или крестик - закрыть</p>
+    <button class="lightbox-nav lightbox-next" type="button" aria-label="Следующий скриншот" hidden>&#8250;</button>
+    <p class="lightbox-hint">Свайп / стрелки - листать &middot; Двойной клик / колесо / щипок - зум &middot; Esc - закрыть</p>
   </div>
 
   <script src="script.js"></script>

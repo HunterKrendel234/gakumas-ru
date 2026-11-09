@@ -69,8 +69,11 @@
     });
   });
 
-  // Карусель скриншотов
+  // Карусель скриншотов на странице
   var carousel = document.getElementById("gallery-carousel");
+  var galleryShots = [];
+  var goToSlide = null;
+
   if (carousel) {
     var track = carousel.querySelector(".carousel-track");
     var slides = carousel.querySelectorAll(".carousel-slide");
@@ -78,14 +81,15 @@
     var currentSlide = 0;
     var slideCount = slides.length;
     var dots = [];
+    galleryShots = Array.prototype.slice.call(carousel.querySelectorAll(".shot"));
 
-    function goToSlide(idx) {
+    goToSlide = function (idx) {
       currentSlide = (idx + slideCount) % slideCount;
       track.style.transform = "translateX(-" + currentSlide * 100 + "%)";
       dots.forEach(function (d, i) {
         d.classList.toggle("active", i === currentSlide);
       });
-    }
+    };
 
     for (var i = 0; i < slideCount; i++) {
       (function (index) {
@@ -107,7 +111,6 @@
       });
     });
 
-    // Поддержка свайпа пальцем на мобильных
     var touchStartX = 0;
     var touchStartY = 0;
     var viewport = carousel.querySelector(".carousel-viewport");
@@ -136,9 +139,14 @@
     );
   }
 
-  // Полноэкранный просмотр скриншотов (Lightbox)
+  // Полноэкранный просмотр скриншотов (Lightbox) с поддержкой карусели
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = lightbox.querySelector("img");
+  var lbPrev = lightbox.querySelector(".lightbox-prev");
+  var lbNext = lightbox.querySelector(".lightbox-next");
+  var lbCounter = document.getElementById("lightbox-counter");
+  var activeGroup = [];
+  var activeIndex = -1;
   var naturalW = 0;
   var naturalH = 0;
   var dw = 0;
@@ -194,11 +202,12 @@
   function fitToWindow() {
     var vw = window.innerWidth;
     var vh = window.innerHeight;
-    var pad = 64;
+    var padX = vw <= 640 ? 16 : 96;
+    var padY = vw <= 640 ? 88 : 96;
     var ratio = naturalW / naturalH;
-    dw = Math.min(vw - pad, naturalW);
+    dw = Math.min(vw - padX, naturalW);
     dh = dw / ratio;
-    var maxH = Math.min(vh - pad, naturalH);
+    var maxH = Math.min(vh - padY, naturalH);
     if (dh > maxH) {
       dh = maxH;
       dw = dh * ratio;
@@ -211,6 +220,46 @@
     applyTransform();
   }
 
+  function updateLightboxNav() {
+    var hasCarousel = activeGroup.length > 1;
+    lbPrev.hidden = !hasCarousel;
+    lbNext.hidden = !hasCarousel;
+    lbCounter.hidden = !hasCarousel;
+    if (hasCarousel) {
+      lbCounter.textContent = (activeIndex + 1) + " / " + activeGroup.length;
+    }
+  }
+
+  function showLightboxImage(img) {
+    function render() {
+      naturalW = img.naturalWidth || 1;
+      naturalH = img.naturalHeight || 1;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || "";
+      fitToWindow();
+      updateLightboxNav();
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+    }
+    if (img.complete && img.naturalWidth) {
+      render();
+    } else {
+      img.addEventListener("load", render, { once: true });
+      if (img.loading === "lazy") {
+        img.loading = "eager";
+      }
+    }
+  }
+
+  function stepLightbox(dir) {
+    if (activeGroup.length <= 1) return;
+    activeIndex = (activeIndex + dir + activeGroup.length) % activeGroup.length;
+    if (goToSlide && activeGroup === galleryShots) {
+      goToSlide(activeIndex);
+    }
+    showLightboxImage(activeGroup[activeIndex]);
+  }
+
   function closeShot() {
     lightbox.hidden = true;
     lightboxImg.removeAttribute("src");
@@ -220,30 +269,28 @@
     lightboxImg.classList.remove("dragging");
   }
 
-  function openShot(img) {
-    naturalW = img.naturalWidth || 1;
-    naturalH = img.naturalHeight || 1;
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt || "";
-    fitToWindow();
-    lightbox.hidden = false;
-    document.body.style.overflow = "hidden";
-  }
+  lbPrev.addEventListener("click", function (e) {
+    e.stopPropagation();
+    stepLightbox(-1);
+  });
+
+  lbNext.addEventListener("click", function (e) {
+    e.stopPropagation();
+    stepLightbox(1);
+  });
 
   var shots = document.querySelectorAll(".shot");
   shots.forEach(function (img) {
     img.addEventListener("click", function () {
-      if (img.complete && img.naturalWidth) {
-        openShot(img);
+      var gIdx = galleryShots.indexOf(img);
+      if (gIdx !== -1) {
+        activeGroup = galleryShots;
+        activeIndex = gIdx;
       } else {
-        img.addEventListener(
-          "load",
-          function () {
-            openShot(img);
-          },
-          { once: true }
-        );
+        activeGroup = [img];
+        activeIndex = 0;
       }
+      showLightboxImage(img);
     });
   });
 
@@ -295,6 +342,7 @@
   var panOrigin = { x: 0, y: 0 };
   var pinchStart = { scale: 1, panX: 0, panY: 0, dist: 1, midX: 0, midY: 0 };
   var moved = false;
+  var lastTapTime = 0;
 
   function dist(a, b) {
     return Math.sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
@@ -307,27 +355,9 @@
     return { x: (p1.x + p2.x) / 2, y: (p1.y + p2.y) / 2 };
   }
 
-  function endPan(pointerId, target, tap) {
-    delete pointers[pointerId];
-    var keys = Object.keys(pointers);
-    if (keys.length === 1) {
-      panMode = "pan";
-      panStart.x = pointers[keys[0]].x;
-      panStart.y = pointers[keys[0]].y;
-      panOrigin.x = panX;
-      panOrigin.y = panY;
-    } else if (keys.length === 0) {
-      panMode = null;
-      lightboxImg.classList.remove("dragging");
-      if (tap && target === lightbox) {
-        closeShot();
-      }
-    }
-  }
-
   lightbox.addEventListener("pointerdown", function (e) {
     if (lightbox.hidden) return;
-    if (e.target.closest(".lightbox-close")) return;
+    if (e.target.closest(".lightbox-close, .lightbox-nav")) return;
     pointers[e.pointerId] = { x: e.clientX, y: e.clientY };
     var keys = Object.keys(pointers);
     if (keys.length === 1) {
@@ -360,11 +390,13 @@
     if (panMode === "pan") {
       var dx = e.clientX - panStart.x;
       var dy = e.clientY - panStart.y;
-      if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
-      panX = panOrigin.x + dx;
-      panY = panOrigin.y + dy;
-      clampPan();
-      applyTransform();
+      if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+      if (scale > 1) {
+        panX = panOrigin.x + dx;
+        panY = panOrigin.y + dy;
+        clampPan();
+        applyTransform();
+      }
     } else if (panMode === "pinch" && keys.length === 2) {
       var mid = currentMid();
       var d = dist(pointers[keys[0]], pointers[keys[1]]);
@@ -378,16 +410,59 @@
 
   function pointerUp(e) {
     if (lightbox.hidden) return;
-    var tap = panMode === "pan" && !moved;
-    endPan(e.pointerId, e.target, tap);
+    var dx = e.clientX - panStart.x;
+    var dy = e.clientY - panStart.y;
+    var wasSinglePan = panMode === "pan" && Object.keys(pointers).length === 1;
+
+    delete pointers[e.pointerId];
+    var keys = Object.keys(pointers);
+
+    if (keys.length === 1) {
+      panMode = "pan";
+      panStart.x = pointers[keys[0]].x;
+      panStart.y = pointers[keys[0]].y;
+      panOrigin.x = panX;
+      panOrigin.y = panY;
+      return;
+    }
+
+    panMode = null;
+    lightboxImg.classList.remove("dragging");
+
+    if (!wasSinglePan) return;
+
+    // Если картинка не увеличена (scale === 1), горизонтальный свайп листает карусель
+    if (scale === 1 && moved && Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) && activeGroup.length > 1) {
+      stepLightbox(dx < 0 ? 1 : -1);
+      return;
+    }
+
+    // Одиночный/двойной тап без перетаскивания
+    if (!moved) {
+      var now = Date.now();
+      if (e.target === lightboxImg && now - lastTapTime < 280) {
+        zoomAt(e.clientX, e.clientY, scale > 1 ? 1 : 2.5);
+        lastTapTime = 0;
+        return;
+      }
+      lastTapTime = now;
+      if (e.target === lightbox) {
+        closeShot();
+      }
+    }
   }
 
   lightbox.addEventListener("pointerup", pointerUp);
   lightbox.addEventListener("pointercancel", pointerUp);
 
   document.addEventListener("keydown", function (e) {
-    if (!lightbox.hidden && e.key === "Escape") {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") {
       closeShot();
+    } else if (e.key === "ArrowLeft") {
+      stepLightbox(-1);
+    } else if (e.key === "ArrowRight") {
+      stepLightbox(1);
     }
   });
 
